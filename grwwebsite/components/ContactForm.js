@@ -2,6 +2,7 @@ import { useState } from "react";
 import emailjs from "emailjs-com";
 import { useLocale } from "../contexts/LocaleContext";
 import translations from "../locales/translations.json";
+import Image from "next/image";
 
 export default function ContactForm() {
   const { locale } = useLocale();
@@ -13,7 +14,7 @@ export default function ContactForm() {
     message: "",
   });
 
-  const [status, setStatus] = useState(""); // To show success or error messages
+  const [isSubmitted, setIsSubmitted] = useState(false); // To track if form was submitted successfully
 
   // Handle input changes
   const handleChange = (e) => {
@@ -44,67 +45,99 @@ export default function ContactForm() {
       );
 
       console.log(result.text);
-      setStatus("Thank you for reaching out! Your message has been sent.");
+      setIsSubmitted(true); // Show success UI
       setFormData({ name: "", email: "", message: "" }); // Clear the form after submission
     } catch (error) {
       console.error(error);
-      setStatus("Oops! Something went wrong. Please try again.");
+      alert("Oops! Something went wrong. Please try again."); // Simple error notification
     }
   };
 
+  // Reset the form
+  const handleReset = () => {
+    setIsSubmitted(false);
+  };
+
   return (
-    <form
-      className="max-w-2xl mx-auto bg-white p-10 rounded-xl shadow-lg space-y-6"
-      onSubmit={handleSubmit}
-    >
-      <div className="text-center">
-        <span className="text-sm uppercase text-[#ff3b31] font-semibold">
-          {t.pre}
-        </span>
-        {/* Fixed the title styling to ensure it's black with full opacity on all devices */}
-        <h2 className="text-3xl font-bold text-black opacity-100">{t.title}</h2>
-        {/* Also ensuring subtitle has proper opacity */}
-        <p className="text-gray-500 mt-2 opacity-100">{t.subtitle}</p>
-      </div>
+    <div className="max-w-2xl mx-auto bg-white p-10 rounded-xl shadow-lg">
+      {isSubmitted ? (
+        // Success message UI
+        <div className="text-center space-y-6">
+          <div className="flex justify-center">
+            <Image
+              src="/images/iconlogo.jpg"
+              width={80}
+              height={80}
+              alt="Logo"
+              className="rounded-full object-cover"
+            />
+          </div>
 
-      <input
-        type="text"
-        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ff3b31]"
-        placeholder={t.name}
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        required
-      />
+          <h4 className="text-2xl font-semibold text-black opacity-100">
+            Thank you!
+          </h4>
+          <p className="text-gray-600 opacity-100 text-lg">
+            We will get back to you soon.
+          </p>
 
-      <input
-        type="email"
-        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ff3b31]"
-        placeholder={t.email}
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        required
-      />
+          <button
+            onClick={handleReset}
+            className="px-8 py-3 bg-[#ff3b31] text-white rounded-lg font-semibold hover:bg-[#e52e26] transition mt-4"
+          >
+            Send another message
+          </button>
+        </div>
+      ) : (
+        // Contact form UI
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="text-center">
+            <span className="text-sm uppercase text-[#ff3b31] font-semibold">
+              {t.pre}
+            </span>
+            <h2 className="text-3xl font-bold text-black opacity-100">
+              {t.title}
+            </h2>
+            <p className="text-gray-500 mt-2 opacity-100">{t.subtitle}</p>
+          </div>
 
-      <textarea
-        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ff3b31]"
-        placeholder={t.message}
-        name="message"
-        rows={5}
-        value={formData.message}
-        onChange={handleChange}
-        required
-      />
+          <input
+            type="text"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ff3b31]"
+            placeholder={t.name}
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
 
-      <button
-        type="submit"
-        className="w-full py-3 bg-[#ff3b31] text-white rounded-lg font-semibold hover:bg-[#e52e26] transition"
-      >
-        {t.submit}
-      </button>
+          <input
+            type="email"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ff3b31]"
+            placeholder={t.email}
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
 
-      {status && <p className="mt-4 text-center text-green-500">{status}</p>}
-    </form>
+          <textarea
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ff3b31]"
+            placeholder={t.message}
+            name="message"
+            rows={5}
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
+
+          <button
+            type="submit"
+            className="w-full py-3 bg-[#ff3b31] text-white rounded-lg font-semibold hover:bg-[#e52e26] transition"
+          >
+            {t.submit}
+          </button>
+        </form>
+      )}
+    </div>
   );
 }
