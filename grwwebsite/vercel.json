@@ -1,14 +1,14 @@
 {
   "builds": [
     {
-      "src": "grwwebsite/package.json", // This points to the package.json in the nested directory
-      "use": "@vercel/next" // Vercel uses Next.js to build the app
+      "src": "grwwebsite/package.json",
+      "use": "@vercel/next"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)", // Matches all incoming requests
-      "dest": "grwwebsite/$1" // Routes the requests to the nested grwwebsite directory
+      "src": "/(.*)",
+      "dest": "grwwebsite/$1"
     }
   ]
 }
