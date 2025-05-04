@@ -147,46 +147,49 @@ export default function Home() {
       </section>
 
       {/* Mission & Vision - Fixed background to white */}
-      <section className="py-20 px-4 md:px-8 container mx-auto space-y-12 bg-white">
-        {/* Mission */}
-        <div className="flex flex-col items-stretch gap-8">
-          <div className="w-full bg-[#f2f4f7] rounded-xl shadow-lg p-8 space-y-4">
-            <div className="flex items-center space-x-3">
-              <FaFlag size={32} className="text-[#ff3b31]" />
-              <h2 className="text-3xl font-bold text-black">
-                {t.mission.title}
-              </h2>
+      {/* Mission & Vision - Fixed background to white */}
+      <section className="py-20 px-4 md:px-8 bg-white">
+        <div className="container mx-auto max-w-5xl space-y-12">
+          {/* Mission */}
+          <div className="flex flex-col md:flex-row items-stretch gap-8">
+            <div className="w-full md:w-3/5 bg-[#f2f4f7] rounded-xl shadow-lg p-8 space-y-4">
+              <div className="flex items-center space-x-3">
+                <FaFlag size={32} className="text-[#ff3b31]" />
+                <h2 className="text-3xl font-bold text-black">
+                  {t.mission.title}
+                </h2>
+              </div>
+              <p className="text-lg text-black opacity-100">{t.mission.body}</p>
             </div>
-            <p className="text-lg text-black opacity-100">{t.mission.body}</p>
+            <div className="relative w-full md:w-2/5 h-64 md:h-auto rounded-lg overflow-hidden shadow-md">
+              <Image
+                src="/images/mission.jpg"
+                alt={t.mission.title}
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
-          <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-md">
-            <Image
-              src="/images/mission.jpg"
-              alt={t.mission.title}
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
 
-        {/* Vision */}
-        <div className="flex flex-col items-stretch gap-8">
-          <div className="w-full bg-[#f2f4f7] rounded-xl shadow-lg p-8 space-y-4">
-            <div className="flex items-center space-x-3">
-              <FaEye size={32} className="text-[#ff3b31]" />
-              <h2 className="text-3xl font-bold text-black">
-                {t.vision.title}
-              </h2>
+          {/* Vision */}
+          <div className="flex flex-col md:flex-row-reverse items-stretch gap-8">
+            <div className="w-full md:w-3/5 bg-[#f2f4f7] rounded-xl shadow-lg p-8 space-y-4">
+              <div className="flex items-center space-x-3">
+                <FaEye size={32} className="text-[#ff3b31]" />
+                <h2 className="text-3xl font-bold text-black">
+                  {t.vision.title}
+                </h2>
+              </div>
+              <p className="text-lg text-black opacity-100">{t.vision.body}</p>
             </div>
-            <p className="text-lg text-black opacity-100">{t.vision.body}</p>
-          </div>
-          <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-md">
-            <Image
-              src="/images/vision.jpg"
-              alt={t.vision.title}
-              fill
-              className="object-cover"
-            />
+            <div className="relative w-full md:w-2/5 h-64 md:h-auto rounded-lg overflow-hidden shadow-md">
+              <Image
+                src="/images/vision.jpg"
+                alt={t.vision.title}
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
