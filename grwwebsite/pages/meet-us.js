@@ -120,10 +120,10 @@ export default function Meet() {
           />
           <div className="absolute inset-0 bg-[rgba(0,35,163,0.5)] z-10"></div>
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4 z-20">
-            <span className="text-sm uppercase tracking-wider text-[#ff3b31] font-semibold mb-4">
+            <span className="text-sm uppercase tracking-wider text-[#ff3b31] font-semibold mb-4 opacity-100">
               {t.hero.label}
             </span>
-            <h1 className="text-6xl font-bold text-center leading-tight max-w-4xl">
+            <h1 className="text-6xl font-bold text-center leading-tight max-w-4xl opacity-100">
               {t.hero.title}
             </h1>
           </div>
@@ -135,12 +135,14 @@ export default function Meet() {
             <div className="flex flex-col lg:flex-row gap-12 items-center">
               {/* CEO Info */}
               <div className="w-full lg:w-3/5">
-                <h3 className="text-3xl font-bold text-[#ff3b31] mb-6">
+                <h3 className="text-3xl font-bold text-[#ff3b31] mb-6 opacity-100">
                   {t.ceo.name}
                 </h3>
                 <div className="text-lg text-gray-700 space-y-4 mb-8">
                   {t.ceo.bio.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
+                    <p key={index} className="opacity-100">
+                      {paragraph}
+                    </p>
                   ))}
                 </div>
                 <button
@@ -172,7 +174,7 @@ export default function Meet() {
                       </div>
                       <a
                         href="mailto:roumy.g@grwdevelop.com"
-                        className="text-gray-700 hover:text-[#0023a3] transition"
+                        className="text-gray-700 hover:text-[#0023a3] transition opacity-100"
                       >
                         {t.ceo.contact.email}
                       </a>
@@ -186,7 +188,7 @@ export default function Meet() {
                         href="https://www.linkedin.com/in/roumy-ganaoui-m-sc-eng-17764093/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-700 hover:text-[#0023a3] transition"
+                        className="text-gray-700 hover:text-[#0023a3] transition opacity-100"
                       >
                         {t.ceo.contact.linkedin}
                       </a>
@@ -200,7 +202,7 @@ export default function Meet() {
                         href="https://www.grwdevelop.com/info"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-700 hover:text-[#0023a3] transition"
+                        className="text-gray-700 hover:text-[#0023a3] transition opacity-100"
                       >
                         {t.ceo.contact.businessCard}
                       </a>
@@ -216,13 +218,14 @@ export default function Meet() {
         <section className="py-20 px-4 md:px-8 bg-white">
           <div className="container mx-auto">
             <div className="text-center mb-16">
-              <p className="text-[#ff3b31] font-semibold text-lg uppercase mb-2">
+              <p className="text-[#ff3b31] font-semibold text-lg uppercase mb-2 opacity-100">
                 {t.events.label}
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              {/* Fixed opacity issues for the "Meet us at events" title */}
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black opacity-100">
                 {t.events.title}
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto opacity-100">
                 {t.events.description}
               </p>
             </div>
@@ -279,27 +282,30 @@ export default function Meet() {
 
                       {/* Event Details */}
                       <div className="w-full md:w-2/3 p-6">
-                        <h3 className="text-2xl font-bold mb-2">
+                        {/* Fixed opacity issues for event titles */}
+                        <h3 className="text-2xl font-bold mb-2 text-black opacity-100">
                           {event.name}
                         </h3>
 
                         <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4">
-                          <div className="flex items-center text-gray-600">
+                          <div className="flex items-center text-gray-600 opacity-100">
                             <FaCalendarAlt className="mr-2 text-[#ff3b31]" />
                             <span>{event.date}</span>
                           </div>
 
-                          <div className="flex items-center text-gray-600">
+                          <div className="flex items-center text-gray-600 opacity-100">
                             <FaMapMarkerAlt className="mr-2 text-[#ff3b31]" />
                             <span>{event.location}</span>
                           </div>
                         </div>
 
-                        <p className="text-gray-600">{event.description}</p>
+                        <p className="text-gray-600 opacity-100">
+                          {event.description}
+                        </p>
 
                         {event.url && (
                           <div className="mt-4">
-                            <span className="inline-block text-blue-600 hover:underline">
+                            <span className="inline-block text-blue-600 hover:underline opacity-100">
                               Visit event website ↗
                             </span>
                           </div>

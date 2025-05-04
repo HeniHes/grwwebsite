@@ -4,7 +4,7 @@ import translations from "../locales/translations.json";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -24,12 +24,12 @@ import {
 } from "react-icons/fa";
 
 // Dynamically import components that use browser APIs
-const ChatWidget = dynamic(() => import('../components/ChatWidget'), {
-  ssr: false
+const ChatWidget = dynamic(() => import("../components/ChatWidget"), {
+  ssr: false,
 });
 
 // Dynamic import for Lottie to avoid SSR issues
-const LottieComponent = dynamic(() => import('react-lottie'), { ssr: false });
+const LottieComponent = dynamic(() => import("react-lottie"), { ssr: false });
 
 export default function Services() {
   const { locale } = useLocale();
@@ -46,10 +46,10 @@ export default function Services() {
 
   // Keep track of which features are in view
   const [featuresInView, setFeaturesInView] = useState([]);
-  
+
   // Client-side flag
   const [isClient, setIsClient] = useState(false);
-  
+
   // Animation data state variables for client-side loading
   const [firstAnimation, setFirstAnimation] = useState(null);
   const [secondAnimation, setSecondAnimation] = useState(null);
@@ -58,14 +58,14 @@ export default function Services() {
   // Set isClient to true when component mounts (client-side only)
   useEffect(() => {
     setIsClient(true);
-    
+
     // Load animation data only on client side
     const loadAnimations = async () => {
       try {
         const firstModule = await import("../public/grow.json");
         const secondModule = await import("../public/second.json");
         const thirdModule = await import("../public/third.json");
-        
+
         setFirstAnimation(firstModule.default);
         setSecondAnimation(secondModule.default);
         setThirdAnimation(thirdModule.default);
@@ -73,7 +73,7 @@ export default function Services() {
         console.error("Error loading animations:", error);
       }
     };
-    
+
     loadAnimations();
   }, []);
 
@@ -88,10 +88,15 @@ export default function Services() {
   // Setup intersection observer for scroll animations - only on client side
   useEffect(() => {
     // Only run on client side
-    if (!isClient || !t.whyChoose || !t.whyChoose.features || t.whyChoose.features.length === 0) {
+    if (
+      !isClient ||
+      !t.whyChoose ||
+      !t.whyChoose.features ||
+      t.whyChoose.features.length === 0
+    ) {
       return;
     }
-    
+
     // Initial setup
     const calculateLineHeights = () => {
       const featureElements = document.querySelectorAll(".feature-item");
@@ -163,32 +168,41 @@ export default function Services() {
   }, [isClient, t.whyChoose]);
 
   // Lottie animation options - created only when animations are loaded
-  const defaultOptions = isClient && firstAnimation ? {
-    loop: true,
-    autoplay: true,
-    animationData: firstAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  } : null;
+  const defaultOptions =
+    isClient && firstAnimation
+      ? {
+          loop: true,
+          autoplay: true,
+          animationData: firstAnimation,
+          rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+          },
+        }
+      : null;
 
-  const secondOptions = isClient && secondAnimation ? {
-    loop: true,
-    autoplay: true,
-    animationData: secondAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  } : null;
+  const secondOptions =
+    isClient && secondAnimation
+      ? {
+          loop: true,
+          autoplay: true,
+          animationData: secondAnimation,
+          rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+          },
+        }
+      : null;
 
-  const thirdOptions = isClient && thirdAnimation ? {
-    loop: true,
-    autoplay: true,
-    animationData: thirdAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  } : null;
+  const thirdOptions =
+    isClient && thirdAnimation
+      ? {
+          loop: true,
+          autoplay: true,
+          animationData: thirdAnimation,
+          rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+          },
+        }
+      : null;
 
   return (
     <div className="bg-gray-50">
@@ -222,7 +236,11 @@ export default function Services() {
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 mr-4 flex items-center justify-center bg-blue-50 rounded-full">
                   {isClient && defaultOptions && (
-                    <LottieComponent options={defaultOptions} height={48} width={48} />
+                    <LottieComponent
+                      options={defaultOptions}
+                      height={48}
+                      width={48}
+                    />
                   )}
                 </div>
                 <h3 className="text-3xl md:text-4xl font-bold text-left mr-4 text-gray-800">
@@ -269,7 +287,11 @@ export default function Services() {
               <div className="flex items-center mb-2">
                 <div className="w-12 h-12 mr-4 flex items-center justify-center bg-blue-50 rounded-full">
                   {isClient && secondOptions && (
-                    <LottieComponent options={secondOptions} height={48} width={48} />
+                    <LottieComponent
+                      options={secondOptions}
+                      height={48}
+                      width={48}
+                    />
                   )}
                 </div>
                 <div>
@@ -364,7 +386,11 @@ export default function Services() {
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 mr-4 flex items-center justify-center bg-blue-50 rounded-full">
                   {isClient && thirdOptions && (
-                    <LottieComponent options={thirdOptions} height={48} width={48} />
+                    <LottieComponent
+                      options={thirdOptions}
+                      height={48}
+                      width={48}
+                    />
                   )}
                 </div>
                 <h3 className="text-3xl md:text-4xl font-bold text-left text-gray-800">
@@ -444,7 +470,8 @@ export default function Services() {
       <section className="py-20 px-4 md:px-8 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+            {/* Added text-black and opacity-100 to fix mobile display issues */}
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-black opacity-100">
               {t.whyChoose.title}
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
@@ -508,10 +535,12 @@ export default function Services() {
                       <FaCheck size={20} />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold mb-2 text-gray-800">
+                      {/* Added text-gray-800 and opacity-100 to ensure proper display on mobile */}
+                      <h3 className="text-2xl font-bold mb-2 text-gray-800 opacity-100">
                         {feature.title}
                       </h3>
-                      <p className="text-lg text-gray-600">
+                      {/* Added opacity-100 to ensure proper display on mobile */}
+                      <p className="text-lg text-gray-600 opacity-100">
                         {feature.description}
                       </p>
                     </div>
