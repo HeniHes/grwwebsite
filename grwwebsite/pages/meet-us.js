@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocale } from "../contexts/LocaleContext.js";
 import translations from "../locales/translations.json";
 import Navbar from "../components/Navbar";
@@ -8,6 +8,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
+import supabase from "../supabase/supabase";
 import {
   FaLinkedin,
   FaIdCard,
@@ -19,6 +20,40 @@ import {
 export default function Meet() {
   const { locale } = useLocale();
   const t = translations[locale].meet;
+  
+  // State for storing events from Supabase
+  const [events, setEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch events from Supabase
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        setIsLoading(true);
+        setError(null);
+        
+        const { data, error } = await supabase
+          .from('events')
+          .select('*')
+          .order('date', { ascending: true });
+        
+        if (error) {
+          throw error;
+        }
+        
+        console.log("Fetched events:", data);
+        setEvents(data || []);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+        setError("Failed to load events. Please try again later.");
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    
+    fetchEvents();
+  }, []);
 
   useEffect(() => {
     // This will run on component mount and handle the Calendly integration
@@ -52,30 +87,6 @@ export default function Meet() {
       }
     };
   }, []);
-
-  // Sample event data (replace with actual data from Supabase later)
-  const events = [
-    {
-      id: 1,
-      name: "BIO International Convention 2025",
-      date: "June 8-11, 2025",
-      location: "San Diego, California",
-      description:
-        "The BIO International Convention is the largest global event for the biotechnology industry and attracts the biggest names in biotech, offers key networking and partnering opportunities.",
-      logoSrc: "/images/bio-convention-logo.jpg",
-      url: "https://www.bio.org/events/bio-international-convention",
-    },
-    {
-      id: 2,
-      name: "LabTech Conference 2025",
-      date: "September 15-17, 2025",
-      location: "Boston, Massachusetts",
-      description:
-        "LabTech Conference is the premier event for laboratory technology innovations, bringing together scientists, engineers, and industry professionals to showcase the latest advances in lab instrumentation and technologies.",
-      logoSrc: "/images/labtech-logo.jpg",
-      url: "https://www.labtechconference.com",
-    },
-  ];
 
   return (
     <>
@@ -207,48 +218,80 @@ export default function Meet() {
             </div>
 
             <div className="space-y-8 max-w-4xl mx-auto">
-              {events.map((event) => (
-                <a
-                  key={event.id}
-                  href={event.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
-                >
-                  <div className="flex flex-col md:flex-row">
-                    {/* Event Logo */}
-                    <div className="w-full md:w-1/3 bg-gray-100 flex items-center justify-center p-6">
-                      <div className="relative h-40 w-full">
-                        <Image
-                          src={event.logoSrc}
-                          alt={event.name}
-                          layout="fill"
-                          objectFit="contain"
-                        />
+              {isLoading ? (
+                <div className="text-center py-10">
+                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
+                  <p className="mt-4 text-gray-600">Loading events...</p>
+                </div>
+              ) : error ? (
+                <div className="bg-red-100 border border-red-300 text-red-700 px-4 py-3 rounded-md text-center">
+                  {error}
+                </div>
+              ) : events.length === 0 ? (
+                <div className="bg-gray-100 px-4 py-10 rounded-md text-center">
+                  <p className="text-gray-500">No upcoming events at this time. Check back later!</p>
+                </div>
+              ) : (
+                events.map((event) => (
+                  <a
+                    key={event.id}
+                    href={event.url || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
+                  >
+                    <div className="flex flex-col md:flex-row">
+                      {/* Event Logo */}
+                      <div className="w-full md:w-1/3 bg-gray-100 flex items-center justify-center p-6">
+                        <div className="relative h-40 w-full">
+                          {event.logosrc ? (
+                            <img
+                              src={event.logosrc}
+                              alt={event.name}
+                              className="object-contain w-full h-full"
+                              onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = "https://via.placeholder.com/150?text=No+Image";
+                              }}
+                            />
+                          ) : (
+                            <div className="h-full w-full flex items-center justify-center bg-gray-200 rounded-md">
+                              <span className="text-gray-500 text-sm">No Image</span>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Event Details */}
-                    <div className="w-full md:w-2/3 p-6">
-                      <h3 className="text-2xl font-bold mb-2">{event.name}</h3>
+                      {/* Event Details */}
+                      <div className="w-full md:w-2/3 p-6">
+                        <h3 className="text-2xl font-bold mb-2">{event.name}</h3>
 
-                      <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4">
-                        <div className="flex items-center text-gray-600">
-                          <FaCalendarAlt className="mr-2 text-[#ff3b31]" />
-                          <span>{event.date}</span>
+                        <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4">
+                          <div className="flex items-center text-gray-600">
+                            <FaCalendarAlt className="mr-2 text-[#ff3b31]" />
+                            <span>{event.date}</span>
+                          </div>
+
+                          <div className="flex items-center text-gray-600">
+                            <FaMapMarkerAlt className="mr-2 text-[#ff3b31]" />
+                            <span>{event.location}</span>
+                          </div>
                         </div>
 
-                        <div className="flex items-center text-gray-600">
-                          <FaMapMarkerAlt className="mr-2 text-[#ff3b31]" />
-                          <span>{event.location}</span>
-                        </div>
+                        <p className="text-gray-600">{event.description}</p>
+                        
+                        {event.url && (
+                          <div className="mt-4">
+                            <span className="inline-block text-blue-600 hover:underline">
+                              Visit event website ↗
+                            </span>
+                          </div>
+                        )}
                       </div>
-
-                      <p className="text-gray-600">{event.description}</p>
                     </div>
-                  </div>
-                </a>
-              ))}
+                  </a>
+                ))
+              )}
             </div>
           </div>
         </section>
