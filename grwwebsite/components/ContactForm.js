@@ -61,8 +61,10 @@ export default function ContactForm() {
         <span className="text-sm uppercase text-[#ff3b31] font-semibold">
           {t.pre}
         </span>
-        <h2 className="text-3xl font-bold">{t.title}</h2>
-        <p className="text-gray-500 mt-2">{t.subtitle}</p>
+        {/* Fixed the title styling to ensure it's black with full opacity on all devices */}
+        <h2 className="text-3xl font-bold text-black opacity-100">{t.title}</h2>
+        {/* Also ensuring subtitle has proper opacity */}
+        <p className="text-gray-500 mt-2 opacity-100">{t.subtitle}</p>
       </div>
 
       <input

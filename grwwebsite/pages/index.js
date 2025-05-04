@@ -140,15 +140,15 @@ export default function Home() {
       {/* Mission & Vision - Fixed background to white */}
       <section className="py-20 px-4 md:px-8 container mx-auto space-y-12 bg-white">
         {/* Mission */}
-        <div className="flex flex-col md:flex-row items-stretch gap-8">
-          <div className="w-full md:w-2/3 bg-[#f2f4f7] rounded-xl shadow-lg p-8 space-y-4">
+        <div className="flex flex-col items-stretch gap-8">
+          <div className="w-full bg-[#f2f4f7] rounded-xl shadow-lg p-8 space-y-4">
             <div className="flex items-center space-x-3">
               <FaFlag size={32} className="text-[#ff3b31]" />
               <h2 className="text-3xl font-bold text-black">{t.mission.title}</h2>
             </div>
             <p className="text-lg text-black opacity-100">{t.mission.body}</p>
           </div>
-          <div className="relative w-full md:w-1/3 h-64 md:h-auto rounded-lg overflow-hidden shadow-md">
+          <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-md">
             <Image
               src="/images/mission.jpg"
               alt={t.mission.title}
@@ -159,8 +159,15 @@ export default function Home() {
         </div>
 
         {/* Vision */}
-        <div className="flex flex-col md:flex-row-reverse items-stretch gap-8">
-          <div className="relative w-full md:w-1/3 h-64 md:h-auto rounded-lg overflow-hidden shadow-md">
+        <div className="flex flex-col items-stretch gap-8">
+          <div className="w-full bg-[#f2f4f7] rounded-xl shadow-lg p-8 space-y-4">
+            <div className="flex items-center space-x-3">
+              <FaEye size={32} className="text-[#ff3b31]" />
+              <h2 className="text-3xl font-bold text-black">{t.vision.title}</h2>
+            </div>
+            <p className="text-lg text-black opacity-100">{t.vision.body}</p>
+          </div>
+          <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-md">
             <Image
               src="/images/vision.jpg"
               alt={t.vision.title}
@@ -168,18 +175,14 @@ export default function Home() {
               className="object-cover"
             />
           </div>
-          <div className="w-full md:w-2/3 bg-[#f2f4f7] rounded-xl shadow-lg p-8 space-y-4">
-            <div className="flex items-center space-x-3">
-              <FaEye size={32} className="text-[#ff3b31]" />
-              <h2 className="text-3xl font-bold text-black">{t.vision.title}</h2>
-            </div>
-            <p className="text-lg text-black opacity-100">{t.vision.body}</p>
-          </div>
         </div>
       </section>
       
       {/* Contact */}
       <section className="py-20 px-4 md:px-8 bg-white">
+        {/* Note: We're not adding any heading here, but if your ContactForm component 
+            has its own "Get in Touch" title, you might need to modify that component
+            to ensure the text is black with opacity-100 */}
         <ContactForm />
       </section>
       <Footer />
