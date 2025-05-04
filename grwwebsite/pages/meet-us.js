@@ -9,7 +9,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import supabase from "../supabase/supabase";
+import ChatWidget from "../components/ChatWidget";
+
 import {
+  FaGlobe,
   FaLinkedin,
   FaIdCard,
   FaEnvelope,
@@ -20,7 +23,7 @@ import {
 export default function Meet() {
   const { locale } = useLocale();
   const t = translations[locale].meet;
-  
+
   // State for storing events from Supabase
   const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -32,16 +35,16 @@ export default function Meet() {
       try {
         setIsLoading(true);
         setError(null);
-        
+
         const { data, error } = await supabase
-          .from('events')
-          .select('*')
-          .order('date', { ascending: true });
-        
+          .from("events")
+          .select("*")
+          .order("date", { ascending: true });
+
         if (error) {
           throw error;
         }
-        
+
         console.log("Fetched events:", data);
         setEvents(data || []);
       } catch (error) {
@@ -51,7 +54,7 @@ export default function Meet() {
         setIsLoading(false);
       }
     }
-    
+
     fetchEvents();
   }, []);
 
@@ -149,21 +152,24 @@ export default function Meet() {
               </div>
 
               {/* CEO Image and Contact */}
-              <div className="w-full lg:w-2/5">
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <div className="relative h-96 w-full mb-6">
+              <div className="w-full lg:w-2/8">
+                <div className="bg-[#f1f4f7] p-6 rounded-lg shadow-lg">
+                  <div className="relative h-auto w-full mb-6">
                     <Image
-                      src="/images/roumy.jpeg"
+                      src="/images/roumaida-min.png"
                       alt="Roumy Ganaoui"
-                      layout="fill"
-                      objectFit="cover"
+                      width={800}
+                      height={600}
+                      layout="responsive"
                       className="rounded-lg"
                     />
                   </div>
 
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <FaEnvelope className="text-[#ff3b31]" size={20} />
+                      <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                        <FaEnvelope className="text-white" size={18} />
+                      </div>
                       <a
                         href="mailto:roumy.g@grwdevelop.com"
                         className="text-gray-700 hover:text-[#0023a3] transition"
@@ -173,7 +179,9 @@ export default function Meet() {
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <FaLinkedin className="text-[#ff3b31]" size={20} />
+                      <div className="w-10 h-10 bg-[#0023a3] rounded-full flex items-center justify-center">
+                        <FaLinkedin className="text-white" size={18} />
+                      </div>
                       <a
                         href="https://www.linkedin.com/in/roumy-ganaoui-m-sc-eng-17764093/"
                         target="_blank"
@@ -185,7 +193,9 @@ export default function Meet() {
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <FaIdCard className="text-[#ff3b31]" size={20} />
+                      <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                        <FaGlobe className="text-white" size={18} />
+                      </div>
                       <a
                         href="https://www.grwdevelop.com/info"
                         target="_blank"
@@ -229,13 +239,15 @@ export default function Meet() {
                 </div>
               ) : events.length === 0 ? (
                 <div className="bg-gray-100 px-4 py-10 rounded-md text-center">
-                  <p className="text-gray-500">No upcoming events at this time. Check back later!</p>
+                  <p className="text-gray-500">
+                    No upcoming events at this time. Check back later!
+                  </p>
                 </div>
               ) : (
                 events.map((event) => (
                   <a
                     key={event.id}
-                    href={event.url || '#'}
+                    href={event.url || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
@@ -251,12 +263,15 @@ export default function Meet() {
                               className="object-contain w-full h-full"
                               onError={(e) => {
                                 e.target.onerror = null;
-                                e.target.src = "https://via.placeholder.com/150?text=No+Image";
+                                e.target.src =
+                                  "https://via.placeholder.com/150?text=No+Image";
                               }}
                             />
                           ) : (
                             <div className="h-full w-full flex items-center justify-center bg-gray-200 rounded-md">
-                              <span className="text-gray-500 text-sm">No Image</span>
+                              <span className="text-gray-500 text-sm">
+                                No Image
+                              </span>
                             </div>
                           )}
                         </div>
@@ -264,7 +279,9 @@ export default function Meet() {
 
                       {/* Event Details */}
                       <div className="w-full md:w-2/3 p-6">
-                        <h3 className="text-2xl font-bold mb-2">{event.name}</h3>
+                        <h3 className="text-2xl font-bold mb-2">
+                          {event.name}
+                        </h3>
 
                         <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4">
                           <div className="flex items-center text-gray-600">
@@ -279,7 +296,7 @@ export default function Meet() {
                         </div>
 
                         <p className="text-gray-600">{event.description}</p>
-                        
+
                         {event.url && (
                           <div className="mt-4">
                             <span className="inline-block text-blue-600 hover:underline">
@@ -302,7 +319,7 @@ export default function Meet() {
         </section>
 
         {/* Join Us Section */}
-        <section className="py-20 px-4 md:px-8 bg-gray-50">
+        {/* <section className="py-20 px-4 md:px-8 bg-gray-50">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
               <div className="text-center mb-10">
@@ -355,9 +372,11 @@ export default function Meet() {
               </form>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <Footer />
+        {/* Floating chat widget */}
+        <ChatWidget />
       </div>
     </>
   );

@@ -7,6 +7,14 @@ import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 import ChatWidget from "../components/ChatWidget";
 
+import {
+  FaEye,
+  FaFlag,
+  FaBullseye,
+  FaLightbulb,
+  FaRegLightbulb,
+} from "react-icons/fa";
+
 import Image from "next/image";
 import { Target, Eye, ArrowRightCircle, Flag } from "lucide-react";
 
@@ -121,10 +129,11 @@ export default function Home() {
       {/* Mission & Vision */}
       <section className="py-20 px-8 container mx-auto space-y-12">
         {/* Mission */}
+        {/* Mission section with updated icon */}
         <div className="flex flex-col md:flex-row items-stretch gap-8">
           <div className="w-full md:w-2/3 bg-[#f2f4f7] rounded-xl shadow-lg p-8 space-y-4">
             <div className="flex items-center space-x-3">
-              <ArrowRightCircle size={32} className="text-[#ff3b31]" />
+              <FaFlag size={32} className="text-[#ff3b31]" />
               <h2 className="text-3xl font-bold">{t.mission.title}</h2>
             </div>
             <p className="text-lg">{t.mission.body}</p>
@@ -151,7 +160,7 @@ export default function Home() {
           </div>
           <div className="w-full md:w-2/3 bg-[#f2f4f7] rounded-xl shadow-lg p-8 space-y-4">
             <div className="flex items-center space-x-3">
-              <Flag size={32} className="text-[#ff3b31]" />
+              <FaEye size={32} className="text-[#ff3b31]" />
               <h2 className="text-3xl font-bold">{t.vision.title}</h2>
             </div>
             <p className="text-lg">{t.vision.body}</p>

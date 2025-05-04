@@ -6,6 +6,11 @@ import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 import Lottie from "react-lottie";
 import animationData from "../public/grow.json";
+import secondAnimationData from "../public/second.json";
+import thirdAnimationData from "../public/third.json";
+
+import ChatWidget from "../components/ChatWidget";
+
 import {
   FaArrowCircleRight,
   FaBullseye,
@@ -17,15 +22,36 @@ import {
   FaChartLine,
   FaUserFriends,
   FaGlobe,
-  FaLanguage
+  FaLanguage,
 } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 
+// Lottie animation options for the first animation
 const defaultOptions = {
   loop: true,
   autoplay: true,
   animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
+// Lottie animation options for the second animation
+const secondOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: secondAnimationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
+// Lottie animation options for the third animation
+const thirdOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: thirdAnimationData,
   rendererSettings: {
     preserveAspectRatio: "xMidYMid slice",
   },
@@ -36,7 +62,7 @@ export default function Services() {
   const t = translations[locale].services;
   const servicesEndRef = useRef(null);
   const featureRefs = useRef([]);
-  
+
   // State for read more/less toggling
   const [readMore, setReadMore] = useState({
     businessDevelopment: false,
@@ -57,23 +83,28 @@ export default function Services() {
 
   // Setup intersection observer for scroll animations
   useEffect(() => {
-    if (!t.whyChoose || !t.whyChoose.features || t.whyChoose.features.length === 0) return;
-    
+    if (
+      !t.whyChoose ||
+      !t.whyChoose.features ||
+      t.whyChoose.features.length === 0
+    )
+      return;
+
     // Initial setup
     const calculateLineHeights = () => {
-      const featureElements = document.querySelectorAll('.feature-item');
-      
+      const featureElements = document.querySelectorAll(".feature-item");
+
       featureElements.forEach((el, index) => {
         if (index < featureElements.length - 1) {
-          const currentMark = el.querySelector('.check-mark');
+          const currentMark = el.querySelector(".check-mark");
           const nextItem = featureElements[index + 1];
-          const nextMark = nextItem.querySelector('.check-mark');
-          
+          const nextMark = nextItem.querySelector(".check-mark");
+
           if (currentMark && nextMark) {
             const currentRect = currentMark.getBoundingClientRect();
             const nextRect = nextMark.getBoundingClientRect();
             const distance = nextRect.top - currentRect.top;
-            
+
             const line = document.getElementById(`line-${index}`);
             if (line) {
               line.style.height = `${distance}px`;
@@ -86,7 +117,7 @@ export default function Services() {
     // Setup observer with bidirectional animation
     const observerOptions = {
       root: null,
-      rootMargin: '-10% 0px -10% 0px',
+      rootMargin: "-10% 0px -10% 0px",
       threshold: [0.3, 0.7],
     };
 
@@ -94,14 +125,14 @@ export default function Services() {
       entries.forEach((entry) => {
         const index = parseInt(entry.target.dataset.index);
         const line = document.getElementById(`line-${index}`);
-        
+
         // Update the state based on intersection
         if (entry.isIntersecting) {
-          setFeaturesInView(prev => [...prev, index]);
-          if (line) line.style.transform = 'scaleY(1)';
+          setFeaturesInView((prev) => [...prev, index]);
+          if (line) line.style.transform = "scaleY(1)";
         } else {
-          setFeaturesInView(prev => prev.filter(i => i !== index));
-          if (line) line.style.transform = 'scaleY(0)';
+          setFeaturesInView((prev) => prev.filter((i) => i !== index));
+          if (line) line.style.transform = "scaleY(0)";
         }
       });
     }, observerOptions);
@@ -109,29 +140,28 @@ export default function Services() {
     // Initialize and observe
     setTimeout(() => {
       calculateLineHeights();
-      
-      const featureItems = document.querySelectorAll('.feature-item');
-      featureItems.forEach(item => {
+
+      const featureItems = document.querySelectorAll(".feature-item");
+      featureItems.forEach((item) => {
         observer.observe(item);
       });
     }, 500);
 
     // Recalculate on window resize
-    window.addEventListener('resize', calculateLineHeights);
+    window.addEventListener("resize", calculateLineHeights);
 
     return () => {
-      const featureItems = document.querySelectorAll('.feature-item');
-      featureItems.forEach(item => {
+      const featureItems = document.querySelectorAll(".feature-item");
+      featureItems.forEach((item) => {
         observer.unobserve(item);
       });
-      window.removeEventListener('resize', calculateLineHeights);
+      window.removeEventListener("resize", calculateLineHeights);
     };
   }, [t.whyChoose]);
 
   return (
     <div className="bg-gray-50">
       <Navbar />
-
       {/* Hero Section */}
       <section className="relative w-full h-screen overflow-hidden">
         <Image
@@ -151,7 +181,6 @@ export default function Services() {
           </h1>
         </div>
       </section>
-
       {/* Services Section */}
       <section className="py-20 px-4 md:px-8" ref={servicesEndRef}>
         <div className="container mx-auto flex flex-col md:flex-row gap-8">
@@ -167,12 +196,12 @@ export default function Services() {
                   {t.cards[0].title}
                 </h3>
               </div>
-              
+
               {/* Main description always visible */}
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
                 {t.cards[0].description}
               </p>
-              
+
               {/* Expandable content */}
               {readMore.businessDevelopment && (
                 <div className="animated-fade-in mt-6">
@@ -184,23 +213,29 @@ export default function Services() {
                   </p>
                 </div>
               )}
-              
+
               <button
                 className="bg-[#0023a3] text-white py-2 px-6 rounded-md mt-4 hover:bg-blue-800 transition-colors flex items-center"
                 onClick={() => toggleReadMore("businessDevelopment")}
               >
                 <span>
-                  {readMore.businessDevelopment ? t.buttons.readLess : t.buttons.readMore}
+                  {readMore.businessDevelopment
+                    ? t.buttons.readLess
+                    : t.buttons.readMore}
                 </span>
-                <FaArrowCircleRight className={`ml-2 transform ${readMore.businessDevelopment ? 'rotate-90' : ''} transition-transform`} />
+                <FaArrowCircleRight
+                  className={`ml-2 transform ${
+                    readMore.businessDevelopment ? "rotate-90" : ""
+                  } transition-transform`}
+                />
               </button>
             </div>
 
-            {/* Card 2: Your Local Sales Office */}
+            {/* Card 2: Your Local Sales Office - Using second.json */}
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-2">
                 <div className="w-12 h-12 mr-4 flex items-center justify-center bg-blue-50 rounded-full">
-                  <Lottie options={defaultOptions} height={48} width={48} />
+                  <Lottie options={secondOptions} height={48} width={48} />
                 </div>
                 <div>
                   <h3 className="text-3xl md:text-4xl font-bold text-left text-gray-800">
@@ -211,12 +246,12 @@ export default function Services() {
                   </h4>
                 </div>
               </div>
-              
+
               {/* Main description always visible */}
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
                 {t.cards[1].description}
               </p>
-              
+
               {/* Expandable content */}
               {readMore.yourLocalSalesOffice && (
                 <div className="animated-fade-in space-y-6 mt-6">
@@ -271,34 +306,40 @@ export default function Services() {
                   </div>
                 </div>
               )}
-              
+
               <button
                 className="bg-[#0023a3] text-white py-2 px-6 rounded-md mt-4 hover:bg-blue-800 transition-colors flex items-center"
                 onClick={() => toggleReadMore("yourLocalSalesOffice")}
               >
                 <span>
-                  {readMore.yourLocalSalesOffice ? t.buttons.readLess : t.buttons.readMore}
+                  {readMore.yourLocalSalesOffice
+                    ? t.buttons.readLess
+                    : t.buttons.readMore}
                 </span>
-                <FaArrowCircleRight className={`ml-2 transform ${readMore.yourLocalSalesOffice ? 'rotate-90' : ''} transition-transform`} />
+                <FaArrowCircleRight
+                  className={`ml-2 transform ${
+                    readMore.yourLocalSalesOffice ? "rotate-90" : ""
+                  } transition-transform`}
+                />
               </button>
             </div>
-            
-            {/* Card 3: Startup Process */}
+
+            {/* Card 3: Startup Process - Using third.json */}
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 mr-4 flex items-center justify-center bg-blue-50 rounded-full">
-                  <Lottie options={defaultOptions} height={48} width={48} />
+                  <Lottie options={thirdOptions} height={48} width={48} />
                 </div>
                 <h3 className="text-3xl md:text-4xl font-bold text-left text-gray-800">
                   {t.cards[2].title}
                 </h3>
               </div>
-              
+
               {/* Main description always visible */}
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
                 {t.cards[2].description}
               </p>
-              
+
               {/* Expandable content */}
               {readMore.startupProcess && (
                 <div className="animated-fade-in mt-6">
@@ -316,24 +357,30 @@ export default function Services() {
                   </div>
                 </div>
               )}
-              
+
               <button
                 className="bg-[#0023a3] text-white py-2 px-6 rounded-md mt-4 hover:bg-blue-800 transition-colors flex items-center"
                 onClick={() => toggleReadMore("startupProcess")}
               >
                 <span>
-                  {readMore.startupProcess ? t.buttons.readLess : t.buttons.readMore}
+                  {readMore.startupProcess
+                    ? t.buttons.readLess
+                    : t.buttons.readMore}
                 </span>
-                <FaArrowCircleRight className={`ml-2 transform ${readMore.startupProcess ? 'rotate-90' : ''} transition-transform`} />
+                <FaArrowCircleRight
+                  className={`ml-2 transform ${
+                    readMore.startupProcess ? "rotate-90" : ""
+                  } transition-transform`}
+                />
               </button>
             </div>
           </div>
 
           {/* Right Column: Sticky Card */}
           <div className="w-full md:w-1/3">
-            <div 
+            <div
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow md:sticky md:top-20"
-              style={{position: 'sticky', top: '5rem'}}
+              style={{ position: "sticky", top: "5rem" }}
             >
               <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b border-gray-200 pb-3">
                 {t.sidebar.title}
@@ -356,21 +403,22 @@ export default function Services() {
           </div>
         </div>
       </section>
-
       {/* Why Choose GRW Section */}
       <section className="py-20 px-4 md:px-8 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">{t.whyChoose.title}</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              {t.whyChoose.title}
+            </h2>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link 
-                href="/contact"
+              <Link
+                href="/meet-us"
                 className="px-8 py-3 bg-[#ff3b31] text-white rounded-lg font-semibold hover:bg-[#e52e26] transition"
               >
                 {t.whyChoose.contactBtn}
               </Link>
-              <Link 
-                href="/meet"
+              <Link
+                href="/meet-us"
                 className="px-8 py-3 border border-[#0023a3] text-[#0023a3] rounded-lg font-semibold hover:bg-[#0023a3] hover:text-white transition"
               >
                 {t.whyChoose.meetBtn}
@@ -382,48 +430,53 @@ export default function Services() {
             {/* Features with timeline on the left */}
             <div className="w-full lg:w-3/5 relative timeline-container">
               {/* Background vertical lines - only between checkmarks */}
-              {t.whyChoose.features.map((feature, index) => (
-                index < t.whyChoose.features.length - 1 && (
-                  <div 
-                    key={`bg-line-${index}`}
-                    className="absolute left-5 w-0.5 bg-gray-100 z-0"
-                    style={{
-                      top: `${(index * 160) + 5}px`, // Approximate positioning
-                      height: '160px', // Will be calculated precisely by JS
-                    }}
-                  ></div>
-                )
-              ))}
-              
+              {t.whyChoose.features.map(
+                (feature, index) =>
+                  index < t.whyChoose.features.length - 1 && (
+                    <div
+                      key={`bg-line-${index}`}
+                      className="absolute left-5 w-0.5 bg-gray-100 z-0"
+                      style={{
+                        top: `${index * 160 + 5}px`, // Approximate positioning
+                        height: "160px", // Will be calculated precisely by JS
+                      }}
+                    ></div>
+                  )
+              )}
+
               {/* Feature items */}
               {t.whyChoose.features.map((feature, index) => (
-                <div 
-                  key={index} 
-                  className="relative feature-item mb-16 z-10" 
+                <div
+                  key={index}
+                  className="relative feature-item mb-16 z-10"
                   data-index={index}
                 >
                   {/* This is the animated red line connecting check marks */}
                   {index < t.whyChoose.features.length - 1 && (
-                    <div 
+                    <div
                       id={`line-${index}`}
                       className="absolute left-5 top-5 w-0.5 bg-red-500 z-20 connecting-line"
                       style={{
-                        height: '160px', // Placeholder height, will be calculated by JS
-                        transformOrigin: 'top',
-                        transform: 'scaleY(0)',
-                        transition: 'transform 0.8s ease-in-out'
+                        height: "160px", // Placeholder height, will be calculated by JS
+                        transformOrigin: "top",
+                        transform: "scaleY(0)",
+                        transition: "transform 0.8s ease-in-out",
                       }}
                     ></div>
                   )}
-                  
+
                   {/* Content with check mark */}
                   <div className="flex gap-6 relative z-30">
                     <div className="flex-shrink-0 w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white check-mark">
                       <FaCheck size={20} />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold mb-2 text-gray-800">{feature.title}</h3>
-                      <p className="text-lg text-gray-600">{feature.description}</p>
+                      <h3 className="text-2xl font-bold mb-2 text-gray-800">
+                        {feature.title}
+                      </h3>
+                      <p className="text-lg text-gray-600">
+                        {feature.description}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -434,7 +487,7 @@ export default function Services() {
             <div className="w-full lg:w-2/5 flex justify-center lg:justify-end">
               <div className="lg:sticky lg:top-24 w-full max-w-md">
                 <Image
-                  src="/images/whygrw.jpg"
+                  src="/images/servicesright.jpg"
                   width={500}
                   height={380}
                   alt="GRW Team"
@@ -445,37 +498,42 @@ export default function Services() {
           </div>
         </div>
       </section>
-
+      {/* Floating chat widget */}
+       <ChatWidget />
       {/* Contact Section */}
       <section className="py-20 px-4 md:px-8">
         <ContactForm />
       </section>
-
       <Footer />
-
       <style jsx global>{`
         .animated-fade-in {
           animation: fadeIn 0.5s ease-in-out;
         }
-        
+
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        
+
         .timeline-container {
           padding-bottom: 30px;
         }
-        
+
         .connecting-line {
           position: absolute;
           will-change: transform;
         }
-        
+
         .feature-item {
           position: relative;
         }
-        
+
         @media (max-width: 1023px) {
           .timeline-container {
             margin-bottom: 2rem;
