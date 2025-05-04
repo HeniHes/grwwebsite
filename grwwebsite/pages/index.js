@@ -53,8 +53,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      + {/* Floating chat widget */}
-      + <ChatWidget />
+      {/* Floating chat widget */}
+      <ChatWidget />
       {/* Who We Are */}
       <section className="py-20 px-8 flex flex-col md:flex-row items-center gap-12 container mx-auto">
         <div className="md:w-1/2">
