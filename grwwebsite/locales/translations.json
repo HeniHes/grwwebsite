@@ -1,0 +1,423 @@
+{
+  "en": {
+    "navbar": {
+      "home": "Home",
+      "services": "Services",
+      "meet": "Meet us",
+      "book": "Book Meeting",
+      "toggleText": "FR"
+    },
+    "chat": {
+      "trigger": "Contact us",
+      "title": "Send us a message",
+      "subtitle": "Drop us a message and our team will get back to you as soon as possible!",
+      "name": "Enter your name",
+      "email": "Enter email address",
+      "help": "How can we help?",
+      "send": "Send message"
+    },
+    "hero": {
+      "headingLine1": "We Elevate your Scientific Technologies",
+      "headingLine2": "to New Heights",
+      "ctaServices": "Our services",
+      "ctaExperts": "Meet our experts"
+    },
+    "who": {
+      "title": "Who we are",
+      "body": "We are your International Business Development and Business Intelligence Partner; whether you are a startup seeking guidance or an established business aiming for expansion, our expertise and tailored solutions are designed to fuel your growth. We help Biotech companies expand their reach inside the Americas, Europe, Asia Pacific, Middle East and North Africa by providing expert Sales, inbound Marketing and Representation services, connecting businesses with national and international markets and fostering partnerships that transcend geographical boundaries."
+    },
+    "quote": {
+      "text": "We build Biotech and Lab instrumentation businesses, accelerate sales and fearlessly guide them into new unexplored territories. Driving growth, expediting change.",
+      "author": "Roumy Ganaoui",
+      "role": "CEO of GRW Development Inc."
+    },
+    "why": {
+      "title": "Why choose GRW?",
+      "body": "Our commitment to excellence, coupled with a passion for advancing scientific breakthroughs positions us as your strategic partner in navigating the complexities of the biotech landscape. Explore our services and discover the power of strategic development.",
+      "cta": "Our Services"
+    },
+    "mission": {
+      "title": "Mission",
+      "body": "Your success is our mission! At GRW development, our mission is to be the driving force behind the growth and success of your company. We are dedicated to fostering strategic partnerships, facilitating market expansion, and providing innovative business solutions that propel our clients to the forefront of their respective industries."
+    },
+    "vision": {
+      "title": "Vision",
+      "body": "Our vision at GRW development is to be the undisputed leader in Business Development and Business Intelligence services for the scientific technologies worldwide. We envision a future where our clients not only thrive financially but also contribute significantly to advancements in science and technology. By consistently delivering exceptional value, forging strategic alliances, and embracing innovation, we aim to be the trusted partner that transforms aspirations into achievements."
+    },
+    "contact": {
+      "pre": "Contact us",
+      "title": "Get in touch",
+      "subtitle": "We'd love to hear from you. Please fill out this form.",
+      "name": "Name",
+      "email": "Your name",
+      "message": "Type your message...",
+      "submit": "Send message"
+    },
+    "services": {
+      "hero": {
+        "label": "Services",
+        "title": "Explore our services",
+        "backgroundImage": "/images/services-hero.jpg"
+      },
+      "cards": [
+        {
+          "title": "Business Development",
+          "description": "We help you expand your reach across borders connecting you with the right partners and customers. We oversee the initial phases of your market entry strategy in North America, Europe, Asia Pacific, Middle East and North Africa. We effectively establish and manage a virtual extension of your business; an 'own' office tailored to your needs. Acting as your representative or partner; we take in charge of setting up your distribution channels and cultivating relationships with strategic partners. What sets us apart is our technical and commercial knowledge of the biotech and lab instrumentation industry and our ability to achieve these milestones with minimal resource investment from your end.",
+          "effectiveAccountsPenetration": {
+            "title": "Effective Accounts Penetration",
+            "description": "Our leadership team at GRW brings extensive expertise to the table, having accumulated years of experience in navigating the lab instrumentation and biotechnology landscapes across North America, Europe, and Asia. Our highly qualified contact base and data of targeted customers and our extensive network of personal contacts spans various enterprises, with a particular focus on sectors such as medicinal chemistry, biotechnology, lab technologies, pharmaceuticals utilities, finance and accounting, logistics, human resources, certifications and permits, sales and marketing. These well-established connections are a testament to the quality of our network, enabling GRW to swiftly access pertinent accounts for your products, services, and solutions. By doing so, we aim to provide you with initial reference customers, laying the groundwork for the future growth of your business."
+          }
+        },
+        {
+          "title": "Your Local Sales Office",
+          "subtitle": "Sales Outsourcing",
+          "description": "You have a remarkable technology or product and looking to secure initial customers and references or increase sales? Look no more! Our expertise lies in assisting innovative scale-ups in expanding their presence all over the globe through specialized technical sales outsourcing services with a deep understanding of the Biotech industry. GRW Development serves as your gateway to global markets. We are your local sales office with a physical presence in Canada, USA, Europe, Asia Pacific, Middle East, and North Africa. We take on the responsibility of managing your business; think of us as your dedicated local sales team. It's very costly to hire a dedicated experienced staff to build and manage your business overseas whereas the return on investment (ROI) is still unknown. Additionally, the process of training new staff and acquiring the necessary technical and commercial knowledge, contacts and market insights can be time consuming and resource-intensive.",
+          "startSalesActivities": {
+            "title": "Start your sales activities now!",
+            "description": "We are ready to start your sales activities from prospecting to closing and follow-ups in Canada, USA, Europe, Asia pacific, Middle East and North Africa immediately. Give us a call or contact us. We are happy to help you out."
+          },
+          "minimizeRisk": {
+            "title": "Minimize risk",
+            "description": "Our approach is designed to minimize risk for your company. Our team is ready to start business development and sales activities in Canada, the USA, Europe, Asia Pacific, the Middle East, and North Africa promptly. By partnering with us, you have the opportunity to 'test' the market, gauging its response before making more substantial, direct investments. This strategic approach allows you to minimize risk exposure, ensuring a prudent and measured expansion into these regions when your business is mature enough. We know the corporate culture and background of the various prospects and have an extensive network of personal contacts. By working with GRW Development, you can \"test\" the market in the specified areas and wait with direct investments (e.g. opening your own office, extending your direct sales force) until your business is mature enough, thereby minimizing your risk exposure."
+          },
+          "marketingAsAService": {
+            "title": "Marketing as a service for scale-ups and biotech companies",
+            "description": "We make sure your prospects find their way to you. We provide them with information to show them what you do and which great solutions you have to offer. Last but not least, we help you convert these leads and generate business. We ensure that your potential clients effortlessly discover your products."
+          },
+          "attractCustomers": {
+            "title": "Attract customers",
+            "description": "You've developed a distinctive technology rooted in a clear and strategic vision, providing immense value to your customers. Yet the challenge lies in making your presence known! How can you make them aware of your existence? How can you make sure that they will find you? That they listen to what you have to say and become your customers? Your business and your products and/or services deserve to be put in the spotlight. Your business and its products or services deserve widespread recognition and we can help you with it. Inbound marketing is the catalyst for this journey. We specialize in enhancing your visibility, elevating conversion rates, and generating more leads."
+          },
+          "marketingAndLeadGeneration": {
+            "title": "Marketing & Lead Generation",
+            "description": "The main focus of many tech companies is product development and technical optimization. When working with GRW as your partner, you do not need to worry about marketing and lead generation – these are in good hands. We are a reliable, experienced partner that develops and implements the right marketing policy, using marketing tools that complement and reinforce each other. More leads, optimized conversion rates, and a higher turnover, that is our ultimate goals. Send us a message!"
+          }
+        },
+        {
+          "title": "Startup Process",
+          "description": "Whether you are a Biotechnology / Lab instrumentation startup navigating uncharted territory or an established business seeking expansion, we are here to propel your vision into reality. We support you throughout the development of your startup's functions and more particularly at the level of sales and market penetration, which represent important challenges for most startups in their growth. Our professional experts, biotechnology engineers, business advisers and sales representatives are polyvalent, dynamic, speak 3+ languages and are very motivated to work with you! Our comprehensive suite of services is designed to address the unique challenges and opportunities that your business faces, providing customized solutions at every stage of development of your business and your startup process through all the stages:",
+          "processList": [
+            "Market research",
+            "Business planification",
+            "Legal compliance",
+            "Finance management",
+            "Hiring and team building",
+            "Product/service development",
+            "Branding and marketing",
+            "Logistics",
+            "Customer acquisition"
+          ]
+        }
+      ],
+      "sidebar": {
+        "title": "GRW Development Provides:",
+        "items": [
+          "Immediate local presence",
+          "Direct touch sales activities",
+          "Making lab instrumentation and biotech companies successful in Europe, Americas and MENA region",
+          "Channel development and channel management",
+          "Low risk: minimum investment, maximum return (ROI)"
+        ]
+      },
+      "buttons": {
+        "readMore": "Read More",
+        "readLess": "Read Less"
+      },
+      "whyChoose": {
+        "title": "Why choose GRW",
+        "contactBtn": "Contact us",
+        "meetBtn": "Meet us",
+        "features": [
+          {
+            "title": "Industry Insight",
+            "description": "Benefit from our in-depth knowledge of the biotechnology sector."
+          },
+          {
+            "title": "Proven results",
+            "description": "Join a growing list of satisfied clients who have achieved remarkable success with our services. Our track record speaks for itself, with businesses achieving sustained success through our strategic interventions."
+          },
+          {
+            "title": "Client-Centric Approach",
+            "description": "We tailor our services to align with your unique business goals. We prioritize your goals, ensuring our services align with your vision. Your success is our priority."
+          },
+          {
+            "title": "Global Reach",
+            "description": "Benefit from our extensive established network, qualified Data and global perspective, connecting your business to the right customers and partners."
+          },
+          {
+            "title": "Languages & easy communication",
+            "description": "Understanding of different business cultures and markets. Business is all about people; our professional experts, biotechnology engineers, and business advisers are polyvalent, dynamic, speak 3+ languages, and are very motivated to work with you!"
+          }
+        ]
+      }
+    },
+    "meet": {
+      "hero": {
+        "label": "Meet us",
+        "title": "Meet our Founder & CEO"
+      },
+      "ceo": {
+        "name": "Roumy Ganaoui, M.Sc. Engineering",
+        "bio": [
+          "Roumy Ganaoui is the founder and CEO of GRW Development Inc. With over 10 years of experience working with Scientific and Biotech companies, she developed a leading force in the intersection of Biotech Engineering and Business Development.",
+          "With a passion for science, innovation and commitment to growth, her journey has been defined by a relentless pursuit of excellence navigating through various roles in the biotech industry and led several projects in France, Canada, USA and North Africa, collaborating with European, American and Asian companies.",
+          "She recognized the immense potential for synergy between groundbreaking scientific advancements and strategic business development. This realization fueled the creation of GRW Development; a firm dedicated to propelling biotech companies to the next level. Her vision is to bridge the gap between scientific brilliance and commercial viability.",
+          "Roumy Ganaoui has Masters of Science in Engineering and in Biotechnologies, she is a member of the Chamber of Commerce of Montreal CCMM and the American Chamber of Commerce AmCham."
+        ],
+        "bookMeeting": "Book a Meeting",
+        "contact": {
+          "email": "roumy.g@grwdevelop.com",
+          "linkedin": "LinkedIn Profile",
+          "businessCard": "Digital Business Card"
+        }
+      },
+      "events": {
+        "label": "Events",
+        "title": "Meet us at events",
+        "description": "Meet us at these events and be part of a community dedicated to continuous learning and growth, connect with like-minded professionals and potential collaborators."
+      },
+      "join": {
+        "title": "Join Us",
+        "subtitle": "Want to join our team?",
+        "form": {
+          "name": "Full Name",
+          "email": "Email Address",
+          "message": "Cover Letter or Additional Information",
+          "submit": "Submit Application"
+        }
+      }
+    },
+    "footer": {
+      "logoAlt": "GRW DEVELOP",
+      "nav": {
+        "home": "Home",
+        "services": "Services",
+        "meet": "Meet us"
+      },
+      "office": {
+        "heading": "North America Office",
+        "phone": "+1 437 350 7455",
+        "email1": "contact@grwdevelop.com",
+        "email2": "help@grwdevelop.com"
+      },
+      "socialHeading": "Follow us",
+      "socialLinks": {
+        "linkedin": "#",
+        "twitter": "https://twitter.com/Developmen49245",
+        "wechat": "#",
+        "instagram": "https://www.instagram.com/grw_development/"
+      },
+      "copyright": "© 2024 GRW DEVELOP. All rights reserved."
+    }
+  },
+  "fr": {
+    "navbar": {
+      "home": "Accueil",
+      "services": "Nos services",
+      "meet": "Rencontrez-nous",
+      "book": "Planifier une rencontre",
+      "toggleText": "EN"
+    },
+    "chat": {
+      "trigger": "Contactez-nous",
+      "title": "Envoyez-nous un message",
+      "subtitle": "Laissez-nous un message et notre équipe vous répondra dès que possible !",
+      "name": "Entrez votre nom",
+      "email": "Entrez votre adresse e-mail",
+      "help": "Comment pouvons-nous aider ?",
+      "send": "Envoyer le message"
+    },
+    "hero": {
+      "headingLine1": "Nous élevons vos technologies scientifiques",
+      "headingLine2": "vers de nouveaux sommets",
+      "ctaServices": "Nos services",
+      "ctaExperts": "Rencontrez nos experts"
+    },
+    "who": {
+      "title": "Qui sommes-nous",
+      "body": "Nous sommes votre partenaire en développement des affaires, veille commerciale et vente ; que vous soyez une startup en quête de conseils ou une entreprise établie visant à se développer, notre expertise et nos solutions sur mesure sont conçues pour alimenter votre croissance et augmenter vos ventes. Nous aidons les entreprises de biotechnologie à étendre leur portée en Amérique, en Europe, en Asie-Pacifique, au Moyen-Orient et en Afrique du Nord en proposant des stratégies de développement d'affaires, des ventes expertes, service de marketing et représentation, en connectant les entreprises avec les marchés nationaux et internationaux et en favorisant des partenariats qui transcendent les zones géographiques."
+    },
+    "quote": {
+      "text": "Nous développons les activités commerciales des entreprises en biotechnologie et instrumentation de laboratoire, accélérons les ventes et les guidons sans crainte vers de nouveaux territoires inexplorés. Stimuler la croissance, accélérer le changement.",
+      "author": "Roumy Ganaoui",
+      "role": "PDG de GRW Development Inc."
+    },
+    "why": {
+      "title": "Pourquoi choisir GRW ?",
+      "body": "Notre engagement envers l'excellence, associé à notre passion pour la promotion des avancées scientifiques, nous positionne comme votre partenaire stratégique pour naviguer dans les complexités du paysage biotechnologique. Nous Avons les connaissances techniques et commerciales pour aider les entreprises scientifiques innovantes à étendre leur présence au Canada mais également en toute l'Amérique, en Europe, en Asie-Pacifique, au Moyen-Orient et en Afrique du Nord en fournissant des stratégies de développement d'affaires, des services de vente spécialisés et des services de marketing et représentation adaptés à leurs produits.",
+      "cta": "Nos services"
+    },
+    "mission": {
+      "title": "Mission",
+      "body": "Votre réussite est notre mission ! Chez GRW, notre mission est d'être le moteur de la croissance et du succès des entreprises de biotechnologie et d'instrumentation de laboratoire. Nous nous engageons à augmenter vos ventes, favoriser les partenariats stratégiques, faciliter l'expansion du marché et à fournir des solutions commerciales innovantes qui propulsent nos clients à la pointe de leurs secteurs d'activité respectifs."
+    },
+    "vision": {
+      "title": "Vision",
+      "body": "Notre vision chez GRW est d'être un leader mondial en développement des affaires pour les technologies scientifiques à l'échelle internationale. Nous envisageons un avenir dans lequel nos clients non seulement prospèrent financièrement, mais contribuent également de manière significative aux progrès de la science, de la santé et de la technologie. En fournissant constamment une valeur exceptionnelle, en forgeant des collaborations stratégiques et en adoptant l'innovation, nous visons à être le partenaire de confiance qui transforme les aspirations en réalisations."
+    },
+    "contact": {
+      "pre": "Nous contacter",
+      "title": "Entrez en contact avec nous",
+      "subtitle": "Merci de remplir ce formulaire.",
+      "name": "Nom",
+      "email": "Votre nom",
+      "message": "Tapez votre message...",
+      "submit": "Envoyer un message"
+    },
+    "services": {
+      "hero": {
+        "label": "Nos services",
+        "title": "Découvrez nos services",
+        "backgroundImage": "/images/services-hero.jpg"
+      },
+      "cards": [
+        {
+          "title": "Développement des affaires",
+          "description": "Nous vous aidons à étendre vos activités commerciales là où vous souhaitez vous retrouver. Nous vous offrons un service « clé en main » ; supervision des phases initiales de votre stratégie d'entrée sur le marché et un accès à nos bases de données de clients cibles qui conviennent à vos produits et services sans perte de temps. Nous établissons et gérons efficacement une extension virtuelle de votre entreprise ; un « propre » bureau adapté à vos besoins. En agissant comme votre représentant ou partenaire, nous nous chargeons de mettre en place vos canaux de distribution et d'entretenir des relations avec des partenaires stratégiques. Ce qui nous distingue, c'est notre connaissance technique et commerciale du secteur de la biotechnologie et de l'instrumentation de laboratoire, ainsi que notre capacité à atteindre ces objectifs avec un investissement minimal de votre part.",
+          "effectiveAccountsPenetration": {
+            "title": "Pénétration efficace des comptes clients",
+            "description": "Notre équipe de direction de GRW apporte une vaste expertise, ayant accumulé des années d'expérience dans l'industrie de l'instrumentation de laboratoire et de la biotechnologie en Amérique du Nord (Canada, États-Unis),en Asie, et en Europe. Notre base de contacts hautement qualifiée, les données de clients cibles et notre vaste réseau de contacts personnels couvrent diverses entreprises, avec un accent particulier sur des secteurs tels que la chimie médicinale, la biotechnologie, les technologies de laboratoire, les services pharmaceutiques, les finances et la comptabilité, la logistique, les ressources humaines, les certifications et les permis, les ventes et le marketing. Ces connexions bien établies témoignent de la qualité de notre réseau, permettant à GRW d'accéder rapidement aux comptes pertinents pour vos produits, services et solutions."
+          }
+        },
+        {
+          "title": "Votre Bureau de Vente Local",
+          "subtitle": "Externalisation des ventes",
+          "description": "Vous disposez d'une technologie ou d'un produit remarquable et vous souhaitez obtenir des clients initiaux et des références ou augmenter vos ventes ? Ne cherchez plus ! Notre expertise consiste à aider les entreprises innovantes à étendre leur présence dans le monde entier grâce à des services d'externalisation des ventes techniques spécialisés dotés d'une connaissance approfondie de l'industrie des biotechnologies. GRW International Development est votre porte d'entrée vers les marchés mondiaux. Nous sommes votre bureau de vente local avec une présence physique au Canada, aux États-Unis, en Europe, en Asie-Pacifique, au Moyen-Orient et en Afrique du Nord. Nous prenons la responsabilité de gérer votre entreprise ; considérez-nous comme votre équipe de vente locale dédiée. Il est très coûteux d'engager un personnel expérimenté dédié pour créer et gérer votre entreprise à l'étranger alors que le retour sur investissement (ROI) est encore inconnu. En outre, le processus de formation du nouveau personnel et d'acquisition des connaissances techniques et commerciales nécessaires, des contacts et des connaissances du marché peut être long et gourmand en ressources.",
+          "startSalesActivities": {
+            "title": "Commencez vos activités de vente dès maintenant !",
+            "description": "Nous sommes prêts à démarrer immédiatement vos activités de vente, de la prospection à la clôture de deals et aux suivis après-vente au Canada, aux États-Unis, en Europe, en Asie-Pacifique, au Moyen-Orient et en Afrique du Nord. Appelez-nous ou contactez-nous. Nous sommes heureux de pouvoir vous aider."
+          },
+          "minimizeRisk": {
+            "title": "Minimiser les risques",
+            "description": "Notre approche est conçue pour minimiser les risques pour votre entreprise. Notre équipe est prête à démarrer rapidement des activités de vente et de développement d'affaires au Canada, aux États-Unis, en Europe, en Asie-Pacifique, au Moyen-Orient et en Afrique du Nord. En collaborant avec GRW Développement, vous avez la possibilité de « tester » le marché, d'évaluer sa réponse avant de réaliser des investissements directs plus importants. Cette approche stratégique vous permet de minimiser l'exposition au risque, en garantissant une expansion prudente et mesurée dans ces régions lorsque votre entreprise sera suffisamment mature. Nous connaissons la culture d'entreprise et le parcours des différents prospects et disposons d'un vaste réseau de contacts personnels."
+          },
+          "marketingAsAService": {
+            "title": "Le marketing en tant que service pour les entreprises en expansion",
+            "description": "Nous veillons à ce que vos prospects trouvent leur chemin vers vous. Nous leur fournissons des informations pour leur montrer ce que vous faites et les excellents produits et services que vous avez à proposer. Nous vous aidons à convertir ces prospects et à générer des affaires. Nous veillons à ce que vos clients potentiels découvrent facilement vos produits."
+          },
+          "attractCustomers": {
+            "title": "Attirez des clients",
+            "description": "Vous avez développé une technologie distinctive ancrée dans une vision claire et stratégique, qui apporte une valeur ajoutée immense à vos clients. Pourtant, le défi consiste à faire connaître votre présence ! Comment leur faire prendre conscience de votre existence ? Comment pouvez-vous être sûr qu'ils vous trouveront ? Qu'ils écoutent ce que vous avez à dire et qu'ils deviennent vos clients ? Votre activité et vos produits et/ou services méritent d'être mis en lumière. Votre entreprise et ses produits ou services méritent une large reconnaissance et nous pouvons vous y aider. L'inbound marketing est le catalyseur de cette évolution. Nous sommes spécialisés dans l'amélioration de votre visibilité, l'augmentation des taux de conversion et la génération de prospects."
+          },
+          "marketingAndLeadGeneration": {
+            "title": "Marketing et génération de prospects",
+            "description": "De nombreuses entreprises technologiques se concentrent principalement sur le développement de produits et l'optimisation technique. Lorsque vous travaillez avec GRW développement en tant que partenaire, vous n'avez pas à vous soucier du marketing et de la génération de prospects : tout est entre de bonnes mains. Nous sommes un partenaire fiable et expérimenté qui développe et met en œuvre la bonne stratégie marketing, en utilisant des outils marketing qui se complètent et se renforcent mutuellement. Davantage de prospects, des taux de conversion optimisés et un chiffre d'affaires plus élevé, tels sont nos objectifs ultimes. Envoyez-nous un message !"
+          }
+        },
+        {
+          "title": "Processus pour Entreprise en démarrage",
+          "description": "Que vous soyez une nouvelle entreprise « start-up » de biotechnologie ou d'instrumentation de laboratoire explorant un nouveau territoire ou une entreprise établie en quête d'expansion, nous sommes là pour concrétiser votre vision. Nous vous accompagnons tout au long du développement des fonctions de votre startup et plus particulièrement au niveau des ventes et de la pénétration du marché, qui représentent des défis importants pour la plupart des startups dans leur croissance. Nos experts professionnels, ingénieurs en biotechnologie, conseillers en affaires et représentants commerciaux sont polyvalents, dynamiques, parlent plus de 3 langues et sont très motivés à l'idée de travailler avec vous ! Notre gamme complète de services est conçue pour répondre aux défis et aux opportunités uniques auxquels votre entreprise est confrontée, en fournissant des solutions personnalisées à chaque étape du développement de votre entreprise et de votre processus de démarrage à travers toutes les étapes :",
+          "processList": [
+            "Étude de marché",
+            "Planification des activités de vente & Acquisition de clients",
+            "Conformité légale",
+            "Gestion financière",
+            "Recrutement et team building",
+            "Développement de produits/services",
+            "Image de marque et marketing",
+            "Logistique"
+          ]
+        }
+      ],
+      "sidebar": {
+        "title": "GRW Développement fournit:",
+        "items": [
+          "Présence locale immédiate",
+          "Activités de vente par contact direct",
+          "Succès commercial garanti pour les entreprises d'instrumentation analytique et de biotechnologie au Canada, États-Unis, Europe, Asie Pacifique, Moyen Orient et Afrique du nord.",
+          "Développement d'affaires canalisées avec bonne gestion",
+          "Risque faible, efficacité garantie, rentabilité maximisée : investissement minimum, rendement maximal (RSI)"
+        ]
+      },
+      "buttons": {
+        "readMore": "En savoir plus",
+        "readLess": "Lire moins"
+      },
+      "whyChoose": {
+        "title": "Pourquoi choisir GRW",
+        "contactBtn": "Nous contacter",
+        "meetBtn": "Rencontrez-nous",
+        "features": [
+          {
+            "title": "Aperçu de l'industrie",
+            "description": "Profitez de notre connaissance approfondie du secteur des biotechnologies."
+          },
+          {
+            "title": "Résultats prouvés",
+            "description": "Rejoignez une liste croissante de clients satisfaits qui ont obtenu un succès remarquable grâce à nos services. Notre bilan parle d'lui-même, les entreprises enregistrant un succès durable grâce à nos interventions stratégiques."
+          },
+          {
+            "title": "Approche centrée sur le client",
+            "description": "Nous adaptons nos services en fonction de vos objectifs commerciaux uniques. Nous donnons la priorité à vos objectifs, en veillant à ce que nos services correspondent à votre vision. Votre réussite est notre priorité."
+          },
+          {
+            "title": "Portée mondiale",
+            "description": "Profitez de notre vaste réseau établi, de nos données qualifiées et de notre perspective mondiale, en connectant votre entreprise aux bons clients et partenaires."
+          },
+          {
+            "title": "Langues et facilité de communication",
+            "description": "Compréhension des différentes cultures d'entreprise et des différents marchés. Les affaires sont une question de personnes ; nos experts professionnels, nos ingénieurs en biotechnologie et nos conseillers d'affaires sont polyvalents, dynamiques, parlent plus de 3 langues et sont très motivés à l'idée de travailler avec vous !"
+          }
+        ]
+      }
+    },
+    "meet": {
+      "hero": {
+        "label": "Rencontrez-nous",
+        "title": "Rencontrez notre fondatrice & PDG"
+      },
+      "ceo": {
+        "name": "Roumy Ganaoui, M.Sc. Ingénierie",
+        "bio": [
+          "Roumy Ganaoui, est la fondatrice et PDG de GRW Développement Inc. Avec plus de 10 ans d'expérience de travail avec des sociétés scientifiques et biotechnologiques, elle a développé une force de premier plan à l'intersection de l'ingénierie biotechnologique et du développement d'affaires.",
+          "Passionnée par la science, l'innovation et son engagement en faveur de la croissance, son parcours a été marqué par une quête incessante de l'excellence en occupant divers postes dans l'industrie des biotechnologies et a dirigé plusieurs projets en France, au Canada, aux États-Unis et en Afrique du Nord, en collaborant avec des entreprises américaines, européennes, et asiatiques.",
+          "Elle reconnait l'immense potentiel de synergie entre les avancées scientifiques révolutionnaires et le développement d'affaires stratégique. Cette prise de conscience a donné lieu à la création de GRW Développement Inc., une société dédiée à propulser les entreprises de biotechnologie au niveau supérieur. Sa vision est de combler le fossé entre l'excellence scientifique et la viabilité commerciale.",
+          "Roumy Ganaoui est titulaire d'une maîtrise en génie et en biotechnologies, elle est membre de la Chambre de commerce de Montréal CCMM et de la Chambre de commerce américaine AmCham."
+        ],
+        "bookMeeting": "Prendre Rendez-vous",
+        "contact": {
+          "email": "roumy.g@grwdevelop.com",
+          "linkedin": "Profil LinkedIn",
+          "businessCard": "Carte D'affaire Digitale"
+        }
+      },
+      "events": {
+        "label": "Évènements",
+        "title": "Retrouvez-nous lors de ces évènements",
+        "description": "Faites partie d'une communauté dédiée à l'apprentissage et à la croissance continus, entrez en contact avec des professionnels et des collaborateurs potentiels."
+      },
+      "join": {
+        "title": "Rejoignez-nous",
+        "subtitle": "Vous souhaitez rejoindre notre équipe ?",
+        "form": {
+          "name": "Nom Complet",
+          "email": "Adresse Email",
+          "message": "Lettre de Motivation ou Informations Complémentaires",
+          "submit": "Soumettre la Candidature"
+        }
+      }
+    },
+    "footer": {
+      "logoAlt": "GRW DEVELOP",
+      "nav": {
+        "home": "Accueil",
+        "services": "Nos services",
+        "meet": "Rencontrez-nous"
+      },
+      "office": {
+        "heading": "Bureau Amérique du Nord",
+        "phone": "+1 437 350 7455",
+        "email1": "contact@grwdevelop.com",
+        "email2": "help@grwdevelop.com"
+      },
+      "socialHeading": "Suivez-nous",
+      "socialLinks": {
+        "linkedin": "#",
+        "twitter": "https://twitter.com/Developmen49245",
+        "wechat": "#",
+        "instagram": "https://www.instagram.com/grw_development/"
+      },
+      "copyright": "© 2024 GRW DEVELOP. Tous droits réservés."
+    }
+  }
+}

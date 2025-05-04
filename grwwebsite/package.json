@@ -1,0 +1,34 @@
+{
+  "name": "grwwebsite",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.0.7",
+    "@react-three/fiber": "^9.0.0-alpha.8",
+    "@supabase/supabase-js": "^2.49.4",
+    "canvas": "^3.1.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.507.0",
+    "motion": "^12.9.4",
+    "next": "15.3.1",
+    "nookies": "^2.5.2",
+    "react": "^19.0.0",
+    "react-calendly": "^4.3.1",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "react-lottie": "^1.2.10",
+    "tailwind-merge": "^3.2.0",
+    "three": "^0.176.0",
+    "three-globe": "^2.42.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4"
+  }
+}
