@@ -4,13 +4,11 @@ import translations from "../locales/translations.json";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
-import Lottie from "react-lottie";
-import animationData from "../public/grow.json";
-import secondAnimationData from "../public/second.json";
-import thirdAnimationData from "../public/third.json";
+import dynamic from 'next/dynamic';
+import Image from "next/image";
+import Link from "next/link";
 
-import ChatWidget from "../components/ChatWidget";
-
+// Import icons
 import {
   FaArrowCircleRight,
   FaBullseye,
@@ -24,38 +22,14 @@ import {
   FaGlobe,
   FaLanguage,
 } from "react-icons/fa";
-import Image from "next/image";
-import Link from "next/link";
 
-// Lottie animation options for the first animation
-const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: animationData,
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
-  },
-};
+// Dynamically import components that use browser APIs
+const ChatWidget = dynamic(() => import('../components/ChatWidget'), {
+  ssr: false
+});
 
-// Lottie animation options for the second animation
-const secondOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: secondAnimationData,
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
-  },
-};
-
-// Lottie animation options for the third animation
-const thirdOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: thirdAnimationData,
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
-  },
-};
+// Dynamic import for Lottie to avoid SSR issues
+const LottieComponent = dynamic(() => import('react-lottie'), { ssr: false });
 
 export default function Services() {
   const { locale } = useLocale();
@@ -72,6 +46,36 @@ export default function Services() {
 
   // Keep track of which features are in view
   const [featuresInView, setFeaturesInView] = useState([]);
+  
+  // Client-side flag
+  const [isClient, setIsClient] = useState(false);
+  
+  // Animation data state variables for client-side loading
+  const [firstAnimation, setFirstAnimation] = useState(null);
+  const [secondAnimation, setSecondAnimation] = useState(null);
+  const [thirdAnimation, setThirdAnimation] = useState(null);
+
+  // Set isClient to true when component mounts (client-side only)
+  useEffect(() => {
+    setIsClient(true);
+    
+    // Load animation data only on client side
+    const loadAnimations = async () => {
+      try {
+        const firstModule = await import("../public/grow.json");
+        const secondModule = await import("../public/second.json");
+        const thirdModule = await import("../public/third.json");
+        
+        setFirstAnimation(firstModule.default);
+        setSecondAnimation(secondModule.default);
+        setThirdAnimation(thirdModule.default);
+      } catch (error) {
+        console.error("Error loading animations:", error);
+      }
+    };
+    
+    loadAnimations();
+  }, []);
 
   // Toggle read more/less function
   const toggleReadMore = (key) => {
@@ -81,15 +85,13 @@ export default function Services() {
     }));
   };
 
-  // Setup intersection observer for scroll animations
+  // Setup intersection observer for scroll animations - only on client side
   useEffect(() => {
-    if (
-      !t.whyChoose ||
-      !t.whyChoose.features ||
-      t.whyChoose.features.length === 0
-    )
+    // Only run on client side
+    if (!isClient || !t.whyChoose || !t.whyChoose.features || t.whyChoose.features.length === 0) {
       return;
-
+    }
+    
     // Initial setup
     const calculateLineHeights = () => {
       const featureElements = document.querySelectorAll(".feature-item");
@@ -137,8 +139,8 @@ export default function Services() {
       });
     }, observerOptions);
 
-    // Initialize and observe
-    setTimeout(() => {
+    // Initialize and observe with a delay
+    const timer = setTimeout(() => {
       calculateLineHeights();
 
       const featureItems = document.querySelectorAll(".feature-item");
@@ -147,17 +149,46 @@ export default function Services() {
       });
     }, 500);
 
-    // Recalculate on window resize
+    // Recalculate on window resize - only on client side
     window.addEventListener("resize", calculateLineHeights);
 
     return () => {
+      clearTimeout(timer);
       const featureItems = document.querySelectorAll(".feature-item");
       featureItems.forEach((item) => {
         observer.unobserve(item);
       });
       window.removeEventListener("resize", calculateLineHeights);
     };
-  }, [t.whyChoose]);
+  }, [isClient, t.whyChoose]);
+
+  // Lottie animation options - created only when animations are loaded
+  const defaultOptions = isClient && firstAnimation ? {
+    loop: true,
+    autoplay: true,
+    animationData: firstAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  } : null;
+
+  const secondOptions = isClient && secondAnimation ? {
+    loop: true,
+    autoplay: true,
+    animationData: secondAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  } : null;
+
+  const thirdOptions = isClient && thirdAnimation ? {
+    loop: true,
+    autoplay: true,
+    animationData: thirdAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  } : null;
 
   return (
     <div className="bg-gray-50">
@@ -190,7 +221,9 @@ export default function Services() {
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 mr-4 flex items-center justify-center bg-blue-50 rounded-full">
-                  <Lottie options={defaultOptions} height={48} width={48} />
+                  {isClient && defaultOptions && (
+                    <LottieComponent options={defaultOptions} height={48} width={48} />
+                  )}
                 </div>
                 <h3 className="text-3xl md:text-4xl font-bold text-left mr-4 text-gray-800">
                   {t.cards[0].title}
@@ -235,7 +268,9 @@ export default function Services() {
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-2">
                 <div className="w-12 h-12 mr-4 flex items-center justify-center bg-blue-50 rounded-full">
-                  <Lottie options={secondOptions} height={48} width={48} />
+                  {isClient && secondOptions && (
+                    <LottieComponent options={secondOptions} height={48} width={48} />
+                  )}
                 </div>
                 <div>
                   <h3 className="text-3xl md:text-4xl font-bold text-left text-gray-800">
@@ -328,7 +363,9 @@ export default function Services() {
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 mr-4 flex items-center justify-center bg-blue-50 rounded-full">
-                  <Lottie options={thirdOptions} height={48} width={48} />
+                  {isClient && thirdOptions && (
+                    <LottieComponent options={thirdOptions} height={48} width={48} />
+                  )}
                 </div>
                 <h3 className="text-3xl md:text-4xl font-bold text-left text-gray-800">
                   {t.cards[2].title}
@@ -498,8 +535,8 @@ export default function Services() {
           </div>
         </div>
       </section>
-      {/* Floating chat widget */}
-       <ChatWidget />
+      {/* Floating chat widget - only render on client side */}
+      {isClient && <ChatWidget />}
       {/* Contact Section */}
       <section className="py-20 px-4 md:px-8">
         <ContactForm />
