@@ -45,19 +45,25 @@ export default function Home() {
             {t.hero.headingLine2}
           </h1>
           <div className="mt-10 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-            <Link href="/services" className="px-6 py-3 bg-[#ff3b31] rounded-lg font-semibold hover:bg-[#e52e26] text-center">
-                {t.hero.ctaServices}
+            <Link
+              href="/services"
+              className="px-6 py-3 bg-[#ff3b31] rounded-lg font-semibold hover:bg-[#e52e26] text-center"
+            >
+              {t.hero.ctaServices}
             </Link>
-            <Link href="/meet-us" className="px-6 py-3 border border-white rounded-lg font-semibold hover:bg-white hover:text-[#0023a3] transition text-center">
-                {t.hero.ctaExperts}
+            <Link
+              href="/meet-us"
+              className="px-6 py-3 border border-white rounded-lg font-semibold hover:bg-white hover:text-[#0023a3] transition text-center"
+            >
+              {t.hero.ctaExperts}
             </Link>
           </div>
         </div>
       </section>
-      
+
       {/* Floating chat widget */}
       <ChatWidget />
-      
+
       {/* Who We Are - Fixed background to white */}
       <section className="py-20 px-4 md:px-8 flex flex-col md:flex-row items-center gap-12 container mx-auto bg-white">
         <div className="md:w-1/2">
@@ -78,7 +84,7 @@ export default function Home() {
           </p>
         </div>
       </section>
-      
+
       {/* CEO */}
       <section className="bg-gray-100 py-16 px-4 md:px-8 text-center">
         <p className="text-xl md:text-2xl font-bold max-w-3xl mx-auto mb-8 text-black">
@@ -100,7 +106,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* Video - Fixed background to white */}
       <section className="flex justify-center py-20 px-4 bg-white">
         <div className="w-full max-w-5xl aspect-video rounded-xl overflow-hidden shadow-xl">
@@ -113,7 +119,7 @@ export default function Home() {
           />
         </div>
       </section>
-      
+
       {/* Why Choose */}
       <section className="relative py-20 px-4 md:px-8 overflow-hidden">
         <Image
@@ -131,12 +137,15 @@ export default function Home() {
           <p className="text-[18px] md:text-[20px] leading-relaxed opacity-100">
             {t.why.body}
           </p>
-          <button className="px-6 py-3 bg-[#ff3b31] rounded-lg font-semibold hover:bg-[#e52e26] opacity-100">
+          <Link
+            href="/services"
+            className="px-6 py-3 bg-[#ff3b31] rounded-lg font-semibold hover:bg-[#e52e26] opacity-100"
+          >
             {t.why.cta}
-          </button>
+          </Link>
         </div>
       </section>
-      
+
       {/* Mission & Vision - Fixed background to white */}
       <section className="py-20 px-4 md:px-8 container mx-auto space-y-12 bg-white">
         {/* Mission */}
@@ -144,7 +153,9 @@ export default function Home() {
           <div className="w-full bg-[#f2f4f7] rounded-xl shadow-lg p-8 space-y-4">
             <div className="flex items-center space-x-3">
               <FaFlag size={32} className="text-[#ff3b31]" />
-              <h2 className="text-3xl font-bold text-black">{t.mission.title}</h2>
+              <h2 className="text-3xl font-bold text-black">
+                {t.mission.title}
+              </h2>
             </div>
             <p className="text-lg text-black opacity-100">{t.mission.body}</p>
           </div>
@@ -163,7 +174,9 @@ export default function Home() {
           <div className="w-full bg-[#f2f4f7] rounded-xl shadow-lg p-8 space-y-4">
             <div className="flex items-center space-x-3">
               <FaEye size={32} className="text-[#ff3b31]" />
-              <h2 className="text-3xl font-bold text-black">{t.vision.title}</h2>
+              <h2 className="text-3xl font-bold text-black">
+                {t.vision.title}
+              </h2>
             </div>
             <p className="text-lg text-black opacity-100">{t.vision.body}</p>
           </div>
@@ -177,7 +190,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* Contact */}
       <section className="py-20 px-4 md:px-8 bg-white">
         {/* Note: We're not adding any heading here, but if your ContactForm component 
