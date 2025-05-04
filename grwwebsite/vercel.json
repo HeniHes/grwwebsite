@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "grwwebsite/package.json", // Point to the package.json inside the nested directory
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "grwwebsite/$1" // Redirect all requests to the inner directory
+    }
+  ]
+}
