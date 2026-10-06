@@ -92,7 +92,7 @@ export default function ChatWidget() {
           </div>
 
           {isSubmitted ? (
-            // Success message UI
+            // Success message UI message message message
             <div className="p-6 text-center space-y-4">
               <div className="flex justify-center">
                 <Image
